@@ -16,6 +16,7 @@ QUnit.module('Тестируем функцию inverse', function () {
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ]), [ 5, 4, 3, 2, 1 ]);
 		assert.deepEqual(inverse([ 'a', 'b', 'c', 'd', 'e' ]), [ 'e', 'd', 'c', 'b', 'a' ]);
 		assert.deepEqual(inverse([ null, false, 0, Infinity, '' ]), [ '', Infinity, 0, false, null ]);
+		assert.deepEqual(inverse([ null, true,-Infinity, '' ]), [ '', -Infinity, true, null ]);
 	});
 
 	QUnit.test('Функция не переставляет первые элементы массива', function (assert) {
@@ -32,5 +33,12 @@ QUnit.module('Тестируем функцию inverse', function () {
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], -2), [ 3, 2, 1, 4, 5 ]);
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], -5), [ 1, 2, 3, 4, 5 ]);
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], -15), [ 1, 2, 3, 4, 5 ]);
+	});
+
+	QUnit.test('Функция работает с массивом чётной длины', function (assert) {
+		assert.deepEqual(inverse([ 1, 2 ]), [ 2, 1 ]);
+		assert.deepEqual(inverse([ 'b', 'a' ]), [ 'a', 'b' ]);
+		assert.deepEqual(inverse([ false, true ]), [ true, false ]);
+		assert.deepEqual(inverse([ Infinity, -Infinity ]), [ -Infinity, Infinity ]);
 	});
 });
