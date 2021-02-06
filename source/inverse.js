@@ -9,7 +9,7 @@
 *
 *
 * @param {Array} array An array of elements
-* @param {Number} num A number of elements to skip. If the number is 
+* @param {Integer} num A number of elements to skip. If the number is 
 * negative, then the elements at the end of the array remain in place.
 * @returns {array} inversed array
 *
