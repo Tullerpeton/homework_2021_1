@@ -1,6 +1,6 @@
 'use strict'
 
-/**	
+/** 
 * Changes the order of the elements in the array to the opposite.
 * If a number is passed to the function as the second argument - then 
 * all the elements of the array are rearranged except for the 
@@ -30,13 +30,13 @@
 */
 
 const inverse = (array, num = 0) => {
-	if (!Array.isArray(array) || !Number.isInteger(num)) {	
-		throw new TypeError('Incorrect input data');
-	}
+    if (!Array.isArray(array) || !Number.isInteger(num)) {  
+        throw new TypeError('Incorrect input data');
+    }
 
-	const slice1 = array.slice(0, num); 
-	const slice2 = array.slice(num);
+    const slice1 = array.slice(0, num); 
+    const slice2 = array.slice(num);
 
-	return (num >= 0) ? [...slice1, ...slice2.reverse()] : [...slice1.reverse(), ...slice2];
+    return (num >= 0) ? [...slice1, ...slice2.reverse()] : [...slice1.reverse(), ...slice2];
 }
 
