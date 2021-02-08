@@ -1,17 +1,18 @@
 'use strict'
 
 /**	
-* Changes the order of the elements in the massic to the opposite.
+* Changes the order of the elements in the array to the opposite.
 * If a number is passed to the function as the second argument - then 
 * all the elements of the array are rearranged except for the 
 * first few (the number depends on the number). If the number is 
 * negative, then the elements at the end of the array remain in place.
 *
 *
-* @param {Array} array An array of elements
-* @param {Integer} num A number of elements to skip. If the number is 
-* negative, then the elements at the end of the array remain in place.
-* @returns {array} inversed array
+* @param {Array.<*>} array An array of elements
+* @param {number} num A number of elements to skip. If the number is 
+* negative, then the elements at the end of the array remain in place
+* @throws {TypeError}
+* @returns {Array.<*>} inversed array
 *
 * @author Suvorov Nikita <suvnik.2020@gmail.com>
 *
@@ -29,8 +30,9 @@
 */
 
 const inverse = (array, num = 0) => {
-	if (!Array.isArray(array) || !Number.isInteger(num))
+	if (!Array.isArray(array) || !Number.isInteger(num)) {	
 		throw new TypeError('Incorrect input data');
+	}
 
 	const slice1 = array.slice(0, num); 
 	const slice2 = array.slice(num);
